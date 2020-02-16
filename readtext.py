@@ -111,45 +111,38 @@ class MainScreen(Layout):
         saved_logo = qpy.tmp+"/qpy.logo"
         ur.urlretrieve("https://www.qpython.org/static/img_logo.png", saved_logo)
         self.views.logo.src = "file://"+saved_logo
-        file_name = "/storage/emulated/0/text/庆余年.txt" 
-# （1）创建读文件对象 
-        file_read = open(file_name, mode="r", encoding="utf-8") 
-# （2）一行一行读取文件内容 
-        txtlist = [l.strip() for l in file_read.readlines()] # 去行结束符
-   # 读取一行内容    
+	
+        #以下为框架下新加
+	file_name = "/storage/emulated/0/text/ceshi.txt" # （1）创建读文件对象 
+        file_read = open(file_name, mode="r", encoding="utf-8") # （2）一行一行读取文件内容 
+        txtlist = [l.strip() for l in file_read.readlines()] # 去行结束符      
         txtlistlen=len(txtlist)
         #print(txtlistlen)
         file_read.close()
         message = droid.dialogGetInput('总共'+str(txtlistlen)+'行', '从哪一段开始阅读?').result
-        starnum=int(message)
-
+        startnum=int(message)#开始行数
         message2 = droid.dialogGetInput('还有'+str(txtlistlen-starnum)+"行", '您需要阅读多少行?').result
-        endnum=int(message2)
-
-        readnum=0#结束计数
-        if starnum>txtlistlen:
-           droid.makeToast('输入错误段数，请重新输入')
-   
+        endnum=int(message2)#设定阅读行数
+        readnum=0  #要阅读行数计数置零
+        if startnum>txtlistlen:
+           droid.makeToast('输入错误段数，请重新输入')   
         else:
-           for p in range(starnum,txtlistlen):
-    #Rtext="%s"%(line)
-               #self.views.text1.text=""
+           for p in range(startnum,txtlistlen):    
                Rtext=txtlist[p]
                readnum=readnum+1
                #print(readnum,p,Rtext)
-               dayintxt=str(readnum)+"_"+str(p)+"_"+Rtext
+               dayintxt="阅读第"+str(readnum)+"行，总第"+str(p)+"行_"+Rtext
                self.views.text1.text=dayintxt
                #droid.makeToast(str(readnum)+str(p)+Rtext)
                if not Rtext: 
                   break
-               else:
-         #droid.setTtsPitch(2)
+               else:         
                   droid.ttsSpeak(Rtext)
                   time.sleep(1)
                   if endnum<readnum:#到设定次数停止
                      break
                   else:
-                     time.sleep(12)
+                     time.sleep(5)
         
     def exit(self, view, dummy):
         droid = FullScreenWrapper2App.get_android_instance()
