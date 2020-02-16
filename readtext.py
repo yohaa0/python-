@@ -1,7 +1,7 @@
 #qpy:quiet
 #-*-coding:utf8;-*-
 """
-@AUTHOR yohaa0
+@Author:yohaa0
 @Date:2020-02-16
 This is a sample project which use SL4A UI Framework,
 There is another Sample project: https://github.com/qpython-android/qpy-calcount
