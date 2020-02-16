@@ -113,11 +113,13 @@ class MainScreen(Layout):
         self.views.logo.src = "file://"+saved_logo
 	
         #以下为框架下新加
-	file_name = "/storage/emulated/0/text/ceshi.txt" # （1）创建读文件对象 
-        file_read = open(file_name, mode="r", encoding="utf-8") # （2）一行一行读取文件内容 
-        txtlist = [l.strip() for l in file_read.readlines()] # 去行结束符      
+	file_name = "/storage/emulated/0/text/ceshi.txt" 
+         #创建读文件对象 
+        file_read = open(file_name, mode="r", encoding="utf-8") 
+	 #一行一行读取文件内容 # 去行结束符 
+        txtlist = [l.strip() for l in file_read.readlines()]      
         txtlistlen=len(txtlist)
-        #print(txtlistlen)
+        #print(txtlistlen)	
         file_read.close()
         message = droid.dialogGetInput('总共'+str(txtlistlen)+'行', '从哪一段开始阅读?').result
         startnum=int(message)#开始行数
