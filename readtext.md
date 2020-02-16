@@ -37,7 +37,7 @@ It's based on the [FullScreenWrapper2: An Python SL4A GUI framework for Android]
 * Pythonic access to the views and properties of the layout (ie. MainLayout.views.txt_label.background = “#FFAA00AA”)
 
 ## Framework Overview
-![Framework Overview](fullscreenwrapper2.png)
+![Framework Overview](https://github.com/yohaa0/python-/blob/master/fullscreenwrapper2.png)
 
 
 ## We need your help
