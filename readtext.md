@@ -27,17 +27,17 @@ Author: yohaa0
 It's based on the [FullScreenWrapper2: An Python SL4A GUI framework for Android](http://srinathh.github.io/opensource/fullscreenwrapper/)
 
 ## FullScreenWapper2
-    是一个GUI框架为开发全屏应用程序使用提供的FullScreenUI API函数脚本层为Android (SL4A)使用Python-for-Android它使Python SL4A脚本得到外观和感觉类似于Android所使用的本地Java应用程序使用相同的观点 Java应用程序XML布局和提供了python的访问活动。
+    FullScreenWapper2 is a GUI Framework for developing full screen apps using the FullScreenUI API functions provided by Scripting Layer for Android (SL4A) using Python-for-Android It enables Python SL4A scripts to get a look & feel similar to Android Java apps using the same Views used by native Java apps XML Layouts and provides pythonic access to events.
 
 ## 特性
-'''
-管理eventloop &布局堆栈使简单的父- >子- >父转换
-EventHandler类与event-matching函数预构建标准视图像点击的事件,itemclick(视图)和关键
-设备传感器和其他类似SL4A /自定义事件也可以抓住&管理eventloop + EventHandler类
-python的访问视图和布局(ie. MainLayout.views.txt_label.background = “#FFAA00AA”)
-'''
+
+* Managed eventloop & a layout stack enabling easy parent->child->parent transitions
+* EventHandler classes with event-matching functions pre-built for standard View events like click,itemclick(ListView) and key
+* Device Sensors & other similar SL4A/Custom events can also be caught & managed eventloop + EventHandler class
+* Pythonic access to the views and properties of the layout (ie. MainLayout.views.txt_label.background = “#FFAA00AA”)
+
 ## Framework Overview
-![Framework Overview](http://srinathh.github.io/img/fullscreenwrapper2.png)
+![Framework Overview](fullscreenwrapper2.png)
 
 
 ## We need your help
