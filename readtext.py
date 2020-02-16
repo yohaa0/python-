@@ -114,34 +114,35 @@ class MainScreen(Layout):
 	
         #以下为框架下新加
 	file_name = "/storage/emulated/0/text/ceshi.txt" 
-         #创建读文件对象 
+        #Create object 
         file_read = open(file_name, mode="r", encoding="utf-8") 
-	 #一行一行读取文件内容 # 去行结束符 
+	 #read file Line by line，Remove '\n'
         txtlist = [l.strip() for l in file_read.readlines()]      
         txtlistlen=len(txtlist)
-        #print(txtlistlen)	
+        #print(txtlistlen)
+        #Close object	
         file_read.close()
         message = droid.dialogGetInput('总共'+str(txtlistlen)+'行', '从哪一段开始阅读?').result
-        startnum=int(message)#开始行数
+        startnum=int(message)#Start line
         message2 = droid.dialogGetInput('还有'+str(txtlistlen-starnum)+"行", '您需要阅读多少行?').result
-        endnum=int(message2)#设定阅读行数
-        readnum=0  #要阅读行数计数置零
+        endnum=int(message2)#Set the number of reading lines
+        readnum=0  #Already read lines
         if startnum>txtlistlen:
-           droid.makeToast('输入错误段数，请重新输入')   
+           droid.makeToast('Error!输入了错误的行数，请重新输入')   
         else:
            for p in range(startnum,txtlistlen):    
-               Rtext=txtlist[p]
+               Rdtext=txtlist[p]
                readnum=readnum+1
                #print(readnum,p,Rtext)
-               dayintxt="阅读第"+str(readnum)+"行，总第"+str(p)+"行_"+Rtext
-               self.views.text1.text=dayintxt
+               lineintxt="阅读第"+str(readnum)+"行，总第"+str(p)+"行_"+Rtext
+               self.views.text1.text=lineintxt
                #droid.makeToast(str(readnum)+str(p)+Rtext)
-               if not Rtext: 
+               if not Rdtext: 
                   break
                else:         
-                  droid.ttsSpeak(Rtext)
+                  droid.ttsSpeak(Rdtext)
                   time.sleep(1)
-                  if endnum<readnum:#到设定次数停止
+                  if endnum<readnum:
                      break
                   else:
                      time.sleep(5)
